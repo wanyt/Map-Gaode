@@ -14,10 +14,10 @@ android {
 
     signingConfigs {
         config{
-            storeFile file("map-gaode.jks")
-            storePassword "931017"
+            storeFile file("gaode-map.jks")
+            storePassword "123654"
             keyAlias "gaode"
-            keyPassword "931017"
+            keyPassword "123654"
         }
     }
 
@@ -35,7 +35,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
+    //高德 3D地图
+    compile files('libs/AMap_3DMap_V3.3.2_20160525.jar')
 }
