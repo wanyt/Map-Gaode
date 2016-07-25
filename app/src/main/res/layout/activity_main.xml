@@ -10,4 +10,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </com.amap.api.maps.MapView>
+
+    <ImageButton
+        android:id="@+id/ib_main_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/ib_main_zoomin"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@mipmap/icon_location_a"/>
+
+    <ImageButton
+        android:id="@+id/ib_main_zoomin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/ib_main_zoomout"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@mipmap/icon_zoom_in"/>
+
+    <ImageButton
+        android:id="@+id/ib_main_zoomout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp"
+        android:background="@mipmap/icon_zoom_out"/>
+
+
+    <!--<Button
+        android:id="@+id/bt_main_zoomin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/bt_main_location"
+        android:text="放大"/>
+
+    <Button
+        android:id="@+id/bt_main_zoomout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/bt_main_zoomin"
+        android:text="缩小"/>-->
 </RelativeLayout>
