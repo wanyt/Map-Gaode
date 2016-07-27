@@ -1,8 +1,15 @@
 package com.mapgaode.wanyt;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -12,6 +19,7 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.mapgaode.wanyt.helper.PopWindowHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +39,14 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
     ImageButton btZoomin;
     @BindView(R.id.ib_main_zoomout)
     ImageButton btZoomout;
+    @BindView(R.id.bt_press)
+    Button btPress;
+    @BindView(R.id.ib_main_viewmode)
+    ImageView btViewMode;
+    @BindView(R.id.vi_main_pop_bg)
+    View viPopBg;
+    @BindView(R.id.ib_main_traffic)
+    ImageButton ibTraffic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +71,47 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
         map.getUiSettings().setZoomControlsEnabled(false);//隐藏放大缩小按钮
         map.setMyLocationEnabled(true);
         map.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
+    }
+
+    @OnClick(R.id.bt_press)
+    public void press(){
+
+    }
+
+    private boolean trafficEnable;
+
+    @OnClick(R.id.ib_main_traffic)
+    public void traffic(){
+        trafficEnable = !trafficEnable;
+        map.setTrafficEnabled(trafficEnable);
+    }
+
+    private PopWindowHelper popHelper;
+    private PopupWindow viewModeWindow;
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @OnClick(R.id.ib_main_viewmode)
+    public void viewMode(){
+        if(popHelper == null){
+            popHelper = new PopWindowHelper(this);
+        }
+
+        PopupWindow popupWindow = popHelper.configWindow(map, viewModeWindow);
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            popupWindow.showAsDropDown(btViewMode, 0, -105,
+                    Gravity.CENTER_HORIZONTAL);
+        }else{
+            popupWindow.showAsDropDown(btViewMode);
+        }
+
+        viPopBg.setVisibility(View.VISIBLE);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                viPopBg.setVisibility(View.GONE);
+            }
+        });
     }
 
     /**

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="RenderingProblems"
     tools:context="com.mapgaode.wanyt.MainActivity">
 
     <com.amap.api.maps.MapView
@@ -11,50 +13,48 @@
         android:layout_height="match_parent">
     </com.amap.api.maps.MapView>
 
-    <ImageButton
-        android:id="@+id/ib_main_location"
+    <Button
+        android:id="@+id/bt_press"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/ib_main_zoomin"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/icon_location_a"/>
+        android:text="press"/>
 
     <ImageButton
-        android:id="@+id/ib_main_zoomin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/ib_main_zoomout"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@mipmap/icon_zoom_in"/>
+        android:id="@+id/ib_main_traffic"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:background="@mipmap/icon_traffic"/>
 
     <ImageButton
-        android:id="@+id/ib_main_zoomout"
+        android:id="@+id/ib_main_viewmode"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/ib_main_traffic"
+        android:layout_below="@+id/ib_main_traffic"
+        android:background="@mipmap/icon_streetview"/>
+
+    <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@mipmap/icon_zoom_out"/>
+        android:elevation="20dp"
+        app:cardBackgroundColor="@color/white_transparent">
 
+        <include
+            layout="@layout/include_main_zoom_panel"/>
 
-    <!--<Button
-        android:id="@+id/bt_main_zoomin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/bt_main_location"
-        android:text="放大"/>
+    </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/bt_main_zoomout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/bt_main_zoomin"
-        android:text="缩小"/>-->
+    <View
+        android:id="@+id/vi_main_pop_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/transparent_9"/>
+
 </RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp"
+    android:paddingLeft="3dp"
+    android:paddingRight="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_transparent">
+
+    <ImageButton
+        android:id="@+id/ib_main_location"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="6.5dp"
+        android:background="@mipmap/icon_location_a"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1"/>
+
+    <ImageButton
+        android:id="@+id/ib_main_zoomin"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6.5dp"
+        android:layout_marginBottom="6.5dp"
+        android:background="@mipmap/icon_zoom_in"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#f1f1f1"/>
+
+    <ImageButton
+        android:id="@+id/ib_main_zoomout"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6.5dp"
+        android:background="@mipmap/icon_zoom_out"/>
+
+</LinearLayout>
