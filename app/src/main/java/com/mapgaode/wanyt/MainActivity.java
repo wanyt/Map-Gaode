@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -39,8 +38,6 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
     ImageButton btZoomin;
     @BindView(R.id.ib_main_zoomout)
     ImageButton btZoomout;
-    @BindView(R.id.bt_press)
-    Button btPress;
     @BindView(R.id.ib_main_viewmode)
     ImageView btViewMode;
     @BindView(R.id.vi_main_pop_bg)
@@ -71,11 +68,6 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
         map.getUiSettings().setZoomControlsEnabled(false);//隐藏放大缩小按钮
         map.setMyLocationEnabled(true);
         map.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-    }
-
-    @OnClick(R.id.bt_press)
-    public void press(){
-
     }
 
     private boolean trafficEnable;
