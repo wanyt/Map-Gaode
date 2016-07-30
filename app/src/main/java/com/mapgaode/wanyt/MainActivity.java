@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -18,6 +19,8 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.MyLocationStyle;
 import com.mapgaode.wanyt.helper.PopWindowHelper;
 
 import butterknife.BindView;
@@ -42,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
     ImageView btViewMode;
     @BindView(R.id.vi_main_pop_bg)
     View viPopBg;
-    @BindView(R.id.ib_main_traffic)
-    ImageButton ibTraffic;
+    @BindView(R.id.tv_main_traffic)
+    TextView tvTraffic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,11 +71,19 @@ public class MainActivity extends AppCompatActivity implements LocationSource, A
         map.getUiSettings().setZoomControlsEnabled(false);//隐藏放大缩小按钮
         map.setMyLocationEnabled(true);
         map.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
+
+        //自定义显示当前位置的圆点
+        MyLocationStyle myLocationStyle = new MyLocationStyle();
+        myLocationStyle.myLocationIcon(BitmapDescriptorFactory.fromResource(R.drawable.icon_location));
+        myLocationStyle.strokeColor(this.getResources().getColor(R.color.green));
+        myLocationStyle.strokeWidth(1);
+        myLocationStyle.radiusFillColor(this.getResources().getColor(R.color.transparent_blue));
+        map.setMyLocationStyle(myLocationStyle);
     }
 
     private boolean trafficEnable;
 
-    @OnClick(R.id.ib_main_traffic)
+    @OnClick(R.id.tv_main_traffic)
     public void traffic(){
         trafficEnable = !trafficEnable;
         map.setTrafficEnabled(trafficEnable);

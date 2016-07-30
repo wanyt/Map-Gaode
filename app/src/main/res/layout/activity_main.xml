@@ -36,7 +36,7 @@
             android:layout_gravity="center_vertical"/>
     </android.support.v7.widget.CardView>
 
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/ib_main_traffic"
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -45,15 +45,31 @@
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="15dp"
         android:layout_alignLeft="@+id/card_main_search"
-        android:background="@mipmap/icon_traffic"/>
+        android:background="#60000000"/>-->
+
+    <TextView
+        android:id="@+id/tv_main_traffic"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:text="路况"
+        android:gravity="center"
+        android:paddingBottom="3dp"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:layout_below="@+id/card_main_search"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignLeft="@+id/card_main_search"
+        android:background="@drawable/shape_rec_round_transparent"/>
 
     <ImageButton
         android:id="@+id/ib_main_viewmode"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_alignLeft="@+id/ib_main_traffic"
-        android:layout_below="@+id/ib_main_traffic"
-        android:background="@mipmap/icon_streetview"/>
+        android:layout_alignLeft="@+id/tv_main_traffic"
+        android:layout_below="@+id/tv_main_traffic"
+        android:background="@drawable/shape_rec_round_transparent"/>
 
     <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
